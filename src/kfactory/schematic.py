@@ -843,7 +843,6 @@ class Constraint(BaseModel, ABC, arbitrary_types_allowed=True):
     route_names: list[str]
     instance_names: list[str] = Field(default=[])
     on_failure: Literal["error", "show_error"] | None = "error"
-    _routes: dict[str | None, list[ManhattanRoute]] = PrivateAttr(default={})
     _routers: dict[str | None, list[ManhattanRouter]] = PrivateAttr(default={})
 
     @abstractmethod

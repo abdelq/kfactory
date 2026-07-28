@@ -339,7 +339,7 @@ class KCLayout(
                 Sequence[Sequence[ProtoPort[Any]]],
                 ...,
             ],
-            list[ManhattanRoute],
+            list[Any],
         ],
     ] = Field(default_factory=dict)
     technology_file: Path | None = None
@@ -2819,7 +2819,7 @@ class KCLayout(
         del kcls[self.name]
         self.library.delete()
 
-    def routing_strategy(
+    def routing_strategy[R](
         self,
         f: Callable[
             Concatenate[
@@ -2827,7 +2827,7 @@ class KCLayout(
                 Sequence[Sequence[ProtoPort[Any]]],
                 ...,
             ],
-            list[ManhattanRoute],
+            list[R],
         ],
     ) -> Callable[
         Concatenate[
@@ -2835,9 +2835,11 @@ class KCLayout(
             Sequence[Sequence[ProtoPort[Any]]],
             ...,
         ],
-        list[ManhattanRoute],
+        list[R],
     ]:
-        self.routing_strategies[get_function_name(f)] = f
+        self.routing_strategies[get_function_name(f)] = cast(
+            "Callable[..., list[Any]]", f
+        )
         return f
 
     @overload

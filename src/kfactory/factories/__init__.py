@@ -6,7 +6,7 @@ from ..instance import ProtoTInstance
 from ..instance_group import ProtoTInstanceGroup
 from ..kcell import ProtoTKCell
 from ..typings import dbu, um
-from . import bezier, circular, euler, straight, taper, virtual
+from . import bezier, circular, euler, spiral, straight, taper, virtual
 
 if TYPE_CHECKING:
     from ..kcell import ProtoTKCell
@@ -60,6 +60,7 @@ __all__ = [
     "bezier",
     "circular",
     "euler",
+    "spiral",
     "straight",
     "taper",
     "virtual",

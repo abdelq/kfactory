@@ -80,6 +80,7 @@ from . import (
     schematic,
 )
 from .routing.generic import ManhattanRoute
+from .routing.spiral import SpiralDelayRoute, SpiralSite
 from types import ModuleType
 from typing import TYPE_CHECKING
 
@@ -147,6 +148,8 @@ __all__ = [
     "ProtoPort",
     "ProtoTKCell",
     "Schematic",
+    "SpiralDelayRoute",
+    "SpiralSite",
     "SymmetricalCrossSection",
     "VInstance",
     "VInstanceGroup",

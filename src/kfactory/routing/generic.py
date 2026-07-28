@@ -565,9 +565,6 @@ def route_bundle(
         routers=routers,
         routes=routes,
     )
-    if constraints:
-        for constraint in constraints:
-            constraint._routes[route_name] = routes
     return routes
 
 
